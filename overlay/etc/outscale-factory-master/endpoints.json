@@ -1,0 +1,7 @@
+{
+    "ec2": {
+        "eu-west-1": "api.eu-west-1.outscale.com",
+        "eu-west-3": "api-ppd.outscale.com",
+        "us-east-1": "api.us-east-1.outscale.com"
+    }
+}
