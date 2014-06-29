@@ -1,0 +1,14 @@
+#!/bin/bash -e
+#
+# Setup polipo
+# Taken from tkldev/conf.d/main
+#
+POLIPO_PORT=8124
+
+chmod -x /etc/cron.daily/polipo
+cat >> /etc/polipo/config <<EOF
+
+proxyAddress = 0.0.0.0
+proxyPort = $POLIPO_PORT
+dnsNameServer = 8.8.8.8
+EOF
