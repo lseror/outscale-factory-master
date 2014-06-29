@@ -1,1 +1,9 @@
 #include <turnkey/base>
+
+apt-cacher-ng
+buildbot
+git
+make
+polipo
+python-setuptools
+python3-setuptools
