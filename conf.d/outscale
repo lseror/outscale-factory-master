@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e -u -x
+
+BOT_DIR=/srv/outscale-factory-master
+SUPPORT_DIR=/usr/src/outscale-factory-master
+
+TOOLS_GIT=git://github.com/nodalink/outscale-image-factory.git
+TOOLS_DIR=/usr/src/outscale-image-factory
+
+# Remove useless services
+update-rc.d -f shellinabox remove
+update-rc.d -f webmin remove
+
+# Set permissions on buildbot dir
+chown -R buildbot.buildbot $BOT_DIR
+chmod -R u+w,o-w,a+rX $BOT_DIR
+chown root.root $BOT_DIR/master.cfg
+
+# Install buildbot support code
+(cd $SUPPORT_DIR; python $SUPPORT_DIR/setup.py install -v)
+
+# Install image tools
+git clone $TOOLS_GIT $TOOLS_DIR
+make -C $TOOLS_DIR install
