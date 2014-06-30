@@ -1,0 +1,60 @@
+#!/bin/sh
+set -e -u -x
+
+GIT_SUPPORT=git://github.com/nodalink/outscale-factory-buildbot.git
+GIT_TOOLS=git://github.com/nodalink/outscale-image-factory.git
+
+DIR_SUPPORT=/usr/src/outscale-factory-buildbot
+DIR_TOOLS=/usr/src/outscale-image-factory
+
+DIR_CONFIG=/etc/outscale-factory-master
+DIR_MASTER=/srv/outscale-factory-master
+
+CONFIG_BOTO=/var/lib/buildbot/.boto
+
+# Remove useless services
+update-rc.d -f shellinabox remove
+update-rc.d -f webmin remove
+
+# Install buildbot support code
+git clone $GIT_SUPPORT $DIR_SUPPORT
+make -C $DIR_SUPPORT install
+
+# Install image tools
+git clone $GIT_TOOLS $DIR_TOOLS
+make -C $DIR_TOOLS install
+
+# Create boto config file
+cat > $CONFIG_BOTO <<EOF
+[Boto]
+endpoints_path = $DIR_CONFIG/endpoints.json
+EOF
+
+# Buildbot needs write access to the master dir
+chown -R buildbot.buildbot $DIR_MASTER
+chmod -R u+w,o-w,a+rX $DIR_MASTER
+
+# Make config files writable by root and readable by everyone
+for conf in $DIR_CONFIG/*.json $DIR_MASTER/master.cfg
+do
+    chown root.root $conf
+    chmod 644 $conf
+done
+
+# The boto config and the user.json files contain sensentive data
+# Make them only readable by buildbot and only writable by root
+for conf in $CONFIG_BOTO $DIR_CONFIG/user.json
+do
+    chown root.buildbot $conf
+    chmod 640 $conf
+done
+
+# Configure apt-cacher-ng
+sed -i.dpkg-dist \
+    's/^# *VerboseLog: *[01] *$/VerboseLog: 1/' \
+    /etc/apt-cacher-ng/acng.conf
+
+# Start buildmaster after inithooks and proxies
+sed -i.dpkg-dist \
+    's/^# *Required-Start: .\+$/# Required-Start:    $all/' \
+    /etc/init.d/buildmaster
