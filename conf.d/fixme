@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e -u -x
+
+# Create boto config file
+# TODO move to user configuration script
+BOTO_CONFIG=/var/lib/buildbot/.boto
+cat > $BOTO_CONFIG <<EOF
+[Boto]
+endpoints_path = /etc/boto_endpoints.json
+EOF
+chmod 600 $BOTO_CONFIG
+chown buildbot.buildbot $BOTO_CONFIG
