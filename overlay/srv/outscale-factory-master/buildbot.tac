@@ -4,7 +4,7 @@ import os
 from twisted.application import service
 from buildbot.master import BuildMaster
 
-basedir = r'/root/z'
+basedir = r'/srv/outscale-factory-master'
 rotateLength = 10000000
 maxRotatedFiles = 10
 
