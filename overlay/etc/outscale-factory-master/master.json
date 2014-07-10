@@ -1,0 +1,14 @@
+{
+    "project_title" : "Turnkey Linux Factory",
+    "loglevel_default" : "DEBUG",
+    "loglevel_boto" : "INFO",
+    "git_poll_interval_seconds" : 300,
+    "tree_stable_timer_seconds" : 120,
+    "merge_build_requests" : true,
+    "nightly_scheduler" : false,
+    "nightly_crontab" : "00 04 * * *",
+    "master_apt_proxy_port" : 3142,
+    "master_http_proxy_port" : 8124,
+    "create_image_arch" : "x86_64",
+    "build_volume_gib" : 10
+}
