@@ -1,0 +1,11 @@
+{
+    "slave_description" : "TKLF slave",
+    "slave_admin_address" : "",
+    "slave_instance_size" : "m1.large",
+    "slave_instance_ami_pattern" : "slave-*",
+    "slave_instance_ami_tags" : {},
+    "slave_objects_tags" : {"slave" : "slave"},
+    "slave_build_command" : "/usr/local/bin/build_ami -v",
+    "slave_build_mount_point" : "/mnt/%s",
+    "slave_build_work_dir" : "/srv/%s"
+}
