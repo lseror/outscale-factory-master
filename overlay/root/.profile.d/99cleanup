@@ -1,0 +1,1 @@
+cleanup-interactive && chmod -x /root/.profile.d/99cleanup
