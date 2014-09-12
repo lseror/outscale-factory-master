@@ -5,6 +5,7 @@
     "security_group" : "default",
     "max_instances" : 30,
 
+    "max_appliance_versions": 2,
     "web_status_login" : "me",
     "web_status_password" : "me",
     "web_status_listen_port" : 8010
