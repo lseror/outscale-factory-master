@@ -1,4 +1,0 @@
-#!/bin/sh
-. /etc/default/inithooks
-[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
-$INITHOOKS_PATH/bin/factory.py --pass="$APP_PASS" --email="$APP_EMAIL"

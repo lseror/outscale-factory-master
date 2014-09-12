@@ -1,3 +1,0 @@
-#!/bin/sh
-# Re-enable the cleanup script on each login
-chmod +x /root/profile.d/99cleanup
