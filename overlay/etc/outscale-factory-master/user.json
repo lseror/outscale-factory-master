@@ -4,7 +4,8 @@
     "keypair" : "",
     "security_group" : "default",
     "max_instances" : 30,
-    "web_status_login" : "",
-    "web_status_password" : "",
+
+    "web_status_login" : "me",
+    "web_status_password" : "me",
     "web_status_listen_port" : 8010
 }
