@@ -1,9 +1,29 @@
 {
+    "use_ec2_slaves": false,
+
+    "plain_slaves": [
+        {
+            "name": "plainslave_000",
+            "password": "secret"
+        },
+        {
+            "name": "plainslave_001",
+            "password": "secret"
+        },
+        {
+            "name": "plainslave_002",
+            "password": "secret"
+        }
+    ],
+
+    "ec2_slaves": {
+        "keypair" : "",
+        "security_group" : "default",
+        "max_instances" : 10
+    },
+
     "region" : "eu-west-1",
     "location" : "eu-west-1a",
-    "keypair" : "",
-    "security_group" : "default",
-    "max_instances" : 30,
 
     "max_appliance_versions": 2,
     "web_status_login" : "me",
