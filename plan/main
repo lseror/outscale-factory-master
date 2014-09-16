@@ -7,3 +7,4 @@ make
 polipo
 python-setuptools
 python3-setuptools
+apache2-utils

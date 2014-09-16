@@ -26,7 +26,6 @@
     "location" : "eu-west-1a",
 
     "max_appliance_versions": 2,
-    "web_status_login" : "me",
-    "web_status_password" : "me",
+    "web_status_htpasswd" : "/etc/outscale-factory-master/htpasswd",
     "web_status_listen_port" : 8010
 }
