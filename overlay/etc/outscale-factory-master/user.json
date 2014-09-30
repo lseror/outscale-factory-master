@@ -22,6 +22,12 @@
         "max_instances" : 10
     },
 
+    "marketplace": {
+        "baseurl": "http://",
+        "username": "",
+        "password": ""
+    },
+
     "region" : "eu-west-1",
     "location" : "eu-west-1a",
 

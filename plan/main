@@ -6,5 +6,7 @@ git
 make
 polipo
 python-setuptools
+python-requests
 python3-setuptools
+python3-requests
 apache2-utils
