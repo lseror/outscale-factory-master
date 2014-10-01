@@ -41,7 +41,7 @@ do
     chmod 644 $conf
 done
 
-# The boto config and the user.json files contain sensentive data
+# The boto config and the user.json files contain sensitive data
 # Make them only readable by buildbot and only writable by root
 for conf in $CONFIG_BOTO $DIR_CONFIG/user.json
 do
