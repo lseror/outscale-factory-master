@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e -u -x
 
-GIT_SUPPORT=git://github.com/nodalink/outscale-factory-buildbot.git
-GIT_TOOLS=git://github.com/nodalink/outscale-image-factory.git
+GIT_SUPPORT=https://github.com/nodalink/outscale-factory-buildbot.git
+GIT_TOOLS=https://github.com/nodalink/outscale-image-factory.git
 
 DIR_SUPPORT=/usr/src/outscale-factory-buildbot
 DIR_TOOLS=/usr/src/outscale-image-factory
